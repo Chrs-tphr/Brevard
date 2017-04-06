@@ -32,6 +32,8 @@ inner join ACCELA.bactivity_comment b on g.serv_prov_code=b.serv_prov_code and g
 	and g.b1_per_id2=b.b1_per_id2
 	and g.b1_per_id3=b.b1_per_id3
 
+	where g.restrict_role <> '1111100000'
+	
 where g.b1_per_id1 = '16RES'
 and g.b1_per_id2 = '00000'
 and g.b1_per_id3 = '06783'
@@ -48,5 +50,30 @@ where g.restrict_role = '1'
   
   
   
+ 
+--returns altids where inspection is not Pass and comment restrict role is not valid
+select 
+  b.b1_alt_id
+  ,bac.comment_type
+  ,bac.text
+  ,g.g6_status
+  ,g.g6_status_dd
+  ,g.display_in_aca
+  ,g.restrict_comment_for_aca
+  ,g.restrict_role
+
+from ACCELA.g6action g
+
+inner join ACCELA.bactivity_comment bac on g.serv_prov_code=bac.serv_prov_code 
+  and g.g6_act_num=bac.g6_act_num
+	and g.b1_per_id1=bac.b1_per_id1
+	and g.b1_per_id2=bac.b1_per_id2
+	and g.b1_per_id3=bac.b1_per_id3
   
-  
+inner join ACCELA.b1permit b on bac.serv_prov_code=b.serv_prov_code
+	and b.b1_per_id1=bac.b1_per_id1
+	and b.b1_per_id2=bac.b1_per_id2
+	and b.b1_per_id3=bac.b1_per_id3
+
+	where g.restrict_role <> '1111100000'
+	and g.g6_status <> 'Pass'
