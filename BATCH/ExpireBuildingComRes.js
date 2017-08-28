@@ -17,7 +17,7 @@ var showMessage = false;
 var message = "";
 var maxSeconds = 4.5 * 60;
 var br = "<br>";
-var agncyNme = "MSP";
+var agncyNme = "BREVARD";
 
 /*------------------------------------------------------------------------------------------------------/
 |
@@ -66,17 +66,17 @@ else
 /------------------------------------------------------------------------------------------------------*/
 
 /* test parameters 
-aa.env.setValue("appGroup", "MCD");
-aa.env.setValue("appTypeType", "Intrastate Motor Carrier");
-aa.env.setValue("appSubType", "72 Hour Permit");
-aa.env.setValue("appCategory", "NA"); 
-aa.env.setValue("emailAddress", "deanna.hoops@woolpert.com");
-aa.env.setValue("asiGroup", "PERMIT ACTIVATION");
-aa.env.setValue("asiField", "Start Date");
-aa.env.setValue("lookAheadDays", "-1");
+aa.env.setValue("appGroup", "Building");
+//aa.env.setValue("appTypeType", "");
+//aa.env.setValue("appSubType", "");
+//aa.env.setValue("appCategory", "");
+aa.env.setValue("emailAddress", "chris.godwin@woolpert.com");
+aa.env.setValue("asiGroup", "INVOICES");
+aa.env.setValue("asiField", "Extension Expiration Date");
+aa.env.setValue("lookAheadDays", "-190");
 aa.env.setValue("daySpan", "1");
-aa.env.setValue("skipAppStatus","Active");
-aa.env.setValue("appStatus", "Active");
+aa.env.setValue("skipAppStatus","Expired");
+aa.env.setValue("appStatus", "Expired");
 */
 
 
