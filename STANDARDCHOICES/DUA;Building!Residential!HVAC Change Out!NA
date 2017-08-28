@@ -1,0 +1,2 @@
+010 - updateTask("Inspections","Pending Document Review","Action by Script DUA:Building/Residential/HVAC Change Out/NA","");
+020 - true ^ addAdHocDocumentIntake();

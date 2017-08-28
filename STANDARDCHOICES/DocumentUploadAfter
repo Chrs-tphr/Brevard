@@ -1,0 +1,5 @@
+010 - true ^ showDebug = false; showMessage= false; message="inside DocumentUploadAfter";
+020 - true ^ branch("DUA:" + appTypeArray[0] + "/*/*/*");
+030 - true ^ branch("DUA:" + appTypeArray[0] + "/" + appTypeArray[1] + "/*/*");
+040 - true ^ branch("DUA:" + appTypeArray[0] + "/" + appTypeArray[1] + "/" + appTypeArray[2] + "/*");
+050 - true ^ branch("DUA:" + appTypeString);

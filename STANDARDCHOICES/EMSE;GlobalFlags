@@ -1,0 +1,2 @@
+010 - currentUserID == "ADMIN" || currentUserID == "LICADMIN" || currentUserID == "BECKY.COREY" ^ showDebug = 3; ^ showDebug = false
+Licensee Lookup Default State - true ^ LICENSESTATE = "FL";

@@ -1,0 +1,19 @@
+010 - true ^ showDebug = false; showMessage = true;
+020 - matches(currentUserID,"ADMIN","CHRIS.GODWIN") ^ showDebug=3; showMessage=false; logDebug("***INWORKFLOWTASKUPDATEAFTER");
+030 - wfTask.equals("Status") && wfStatus.equals("Active License") ^ branch("Update Reference Licensed Professional");  showDebug = false;
+040 - wfTask.equals("Review Status") && (wfStatus.equals("Approved - fees due") || wfStatus.equals("Approved w/ Comments - fees due")) ^ invoiceAllFees();
+050 - wfTask.equals("Customer Contact") && wfStatus.equals("Approved") ^ invoiceAllFees();
+//060 - appMatch("Enforce/Code Case/Building/*") && wfTask.equals("Initial Investigation") && {Work Without Permit} == "CHECKED" && wfStatus.equals("Initial Violation") ^ addAddressCondition(false,"Enforce","Applied","WOP","Work without a Permit  CAPID: " + capIDString + " " + wfComment,"Notice")
+//070 - true ^ email("terrol.smith@brevardcounty.us","terrol.smith@brevardcounty.us","Accela Email Test","Let me know if you got this: Andres")
+//080 - appMatch("Building/*/*/*") && wfTask.equals("Certificate of Occupancy") && wfStatus.equals("Permanent Issue") ^ closeTask("Closure","Closed","Closed","Closed")
+//090 - appMatch("Building/*/*/*") && wfProcess.equals("BCCOMFIRE") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//100 - appMatch("Building/*/*/*") && wfProcess.equals("BCMISC") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//110 - appMatch("Building/*/*/*") && wfProcess.equals("BCRESADD") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//120 - appMatch("Building/*/*/*") && wfProcess.equals("BCRESALT") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//130 - appMatch("Building/*/*/*") && wfProcess.equals("BCRESDEM") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//140 - appMatch("Building/*/*/*") && wfProcess.equals("BCRESEXP") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//150 - appMatch("Building/*/*/*") && wfProcess.equals("BDCOMDEM") && wfTask.equals("Inspections") && wfStatus.equals("Finaled") ^ closeTask("Closure","Closed","Closed","Closed")
+//160 - true ^ comment("PERMIT1" + aa.env.getValue("Permitid1"));
+//170 - {Franchise} == "CHECKED" ^ branch("Development_ROW_Franchise_Script")
+//180 - appMatch("Enforce/Code Case/Code Enforcement/*") && wfTask.equals("Initial Investigation") && {Work Without Permit} == "CHECKED" && wfStatus.equals("Initial Violation") ^ addAddressCondition(false,"Enforce","Applied","WOP","Work without a Permit  CAPID: " + capIDString + " " + wfComment,"Notice")
+//190 - wfTask == "Document Intake" && matches(wfStatus, "Accepted for Document Review","Accepted for Revision Review") && !isTaskStatus("Permit Issuance", "Issued") ^ activateDepartmentWfReviews();

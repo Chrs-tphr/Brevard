@@ -1,0 +1,13 @@
+010 - true ^ showDebug=false; showMessage=true;
+020 - matches(currentUserID,"ADMIN","CHRIS.GODWIN") ^ showDebug=3; showMessage=false; logDebug("***INWORKFLOWTASKUPDATEBEFORE");
+030 - appMatch("Licenses/*/*/*") ^ branch("WorkFlowChecksUnpaidFees")
+//040 - appMatch("Building/*/*/*") ^ branch("WorkFlowChecksUnpaidFees")
+//050 - appMatch("Building/*/*/*") && wfTask=="Permit Issuance" && wfStatus=="Issued" && licProfHasExpiredBREVARD() ^ comment("License Expired "+licProfHasExpiredBREVARD());
+//060 - true ^ comment("LICENSE Expired "+licProfHasExpiredBREVARD())
+//070 - true ^ comment("balance"+(balanceDue - feeBalance(null,"IMAPACTFEES") - feeBalance(null,"BLDIMPACT")) )
+080 - appMatch("Building/*/*/*") && wfTask=="Application Submittal" && wfStatus=="Approved" && licProfHasExpiredBREVARD() ^ comment("LICENSE Expired "+licProfHasExpiredBREVARD());
+090 - appMatch("Building/*/*/*") && wfTask == "Permit Issuance" && wfStatus == "Issued" ^ branch("WorkFlowChecksUnpaidFees3")
+100 - appMatch("Building/*/*/*") && wfTask == "Certificate of Occupancy" && wfStatus == "Permanent Issue" ^ branch("WorkFlowChecksUnpaidFees3")
+110 - appMatch("Building/*/*/*") && appHasCondition("Permit Issuance Requirement","Applied",null,null) && wfTask == "Review Status" && (wfStatus == "Approved - fees due" || wfStatus == "Approved w/ Comments - fees due") ^ comment("This task status cannot be used because there is a Permit Issuance Requirement condition applied to this record.");cancel=true;
+120 - appMatch("Building/*/*/*") && appHasCondition("Permit Issuance Requirement","Applied",null,null) && wfTask == "Customer Contact" && wfStatus == "Approved" ^ comment("This task status cannot be used because there is a Permit Issuance Requirement condition applied to this record.");cancel=true;
+//130 - wfTask == "Document Intake" && matches(wfStatus,"Accepted for Document Review","Accepted for Revision Review") ^ validateAdHocReviewSelected();

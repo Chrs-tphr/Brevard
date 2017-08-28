@@ -1,0 +1,6 @@
+010 - feeExists("NATU06","NEW","INVOICED")  && feeBalance("NATU06") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("NATU06")  )
+020 - feeExists("NATU12","NEW","INVOICED")  && feeBalance("NATU12") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("NATU12")  )
+030 - feeExists("ZONRES05","NEW","INVOICED")  && feeBalance("ZONRES05") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("ZONRES05")  )
+040 - feeExists("ZONCOM03","NEW","INVOICED")  && feeBalance("ZONCOM03") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("ZONCOM03")  )
+050 - feeExists("UTIL14COM","NEW","INVOICED")  && feeBalance("UTIL14COM") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("UTIL14COM")  )
+060 - feeExists("UTIL14RES","NEW","INVOICED")  && feeBalance("UTIL14RES") > 0 ^ cancel =true;  comment("Can't update this task when the fee exists with a balance " + feeBalance("UTIL14RES")  )

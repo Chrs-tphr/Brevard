@@ -1,0 +1,5 @@
+010 - true ^ showMessage=false; showDebug=false;
+020 - true ^ branch("DUB:" + appTypeArray[0] + "/*/*/*");
+030 - true ^ branch("DUB:" + appTypeArray[0] + "/" + appTypeArray[1] + "/*/*");
+040 - true ^ branch("DUB:" + appTypeArray[0] + "/" + appTypeArray[1] + "/" + appTypeArray[2] + "/*");
+050 - true ^ branch("DUB:" + appTypeString);
