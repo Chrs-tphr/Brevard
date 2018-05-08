@@ -5,7 +5,7 @@
 |
 | Program : INCLUDES_CUSTOM.js
 | Event   : N/A
-| Version : 17.8.21
+| Version : 17.10.02
 |
 | Usage   : Custom Script Include.  Insert custom EMSE Function below and they will be 
 |	    available to all master scripts
@@ -26,7 +26,8 @@
 |			08/18/2017 - updated function activateDepartmentWfReviews() to set assigned date to current date
 |			08/18/2017 - added function updateBuildingPermitExpirationDate() to populate and update ASI Expiration Date on Building permits.
 |			08/21/2017 - added function testIncludesCustomCall()
-|			08/28/2017 - updated addAdHocDocumentIntake to only run if the current user is a public user
+|			08/28/2017 - updated addAdHocDocumentIntake to only run if the current user is a public useraddAdHocDocumentIntake
+|			10/02/2017 - updated addAdHocDocumentIntake to check for publicUser instead of currentUserID
 |
 /------------------------------------------------------------------------------------------------------*/
 
@@ -163,12 +164,12 @@ function getDocOperation(docModelList)
 
 //If document is uploaded by a public user, adds adHoc Document Intake and updates the document status
 function addAdHocDocumentIntake(){
-	if(currentUserID.slice(0,10) == "PUBLICUSER"){
+	if(publicUser){
 		//get array of document objects
 		var docListArray = new Array();
 		
 		docListResult = aa.document.getCapDocumentList(capId,currentUserID);
-		if(docListResult != null && docListResult.getSuccess()){
+		if(docListResult !== null && docListResult.getSuccess()){
 			docListArray = docListResult.getOutput();
 			
 			//get last uploaded document
