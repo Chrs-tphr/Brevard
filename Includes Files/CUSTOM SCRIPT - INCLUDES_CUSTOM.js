@@ -5,7 +5,7 @@
 |
 | Program : INCLUDES_CUSTOM.js
 | Event   : N/A
-| Version : 17.10.02
+| Version : 18.05.15
 |
 | Usage   : Custom Script Include.  Insert custom EMSE Function below and they will be 
 |	    available to all master scripts
@@ -28,6 +28,7 @@
 |			08/21/2017 - added function testIncludesCustomCall()
 |			08/28/2017 - updated addAdHocDocumentIntake to only run if the current user is a public useraddAdHocDocumentIntake
 |			10/02/2017 - updated addAdHocDocumentIntake to check for publicUser instead of currentUserID
+|			05/15/2018 - updated activateDepartmentWfReviews() to set task due date to current date
 |
 /------------------------------------------------------------------------------------------------------*/
 
@@ -303,6 +304,7 @@ function activateDepartmentWfReviews(){
 			activateTask(wfTaskName);
 			logDebug(" ^^^" + x + " Review was activated for document: " + wfNote)
 			updateTaskAssignedDate(wfTaskName,new Date());
+			editTaskDueDate(wfTaskName,sysDate.month+"/"+sysDate.dayOfMonth+"/"+sysDate.year);
 		}
 	}
 }
