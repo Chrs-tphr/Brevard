@@ -5142,6 +5142,16 @@ function Fee() // Fee Object
 		}
 	}
 
+
+
+function isFinalInspection(iType){
+	if(iType.split(" ").pop().toUpperCase() == "FINAL"){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 //=====================================	
 // NOC Inspection Functions ABOVE	
 //=====================================
