@@ -4748,7 +4748,7 @@ function allowInspectionSchedulingForNOC()
 		
 	}
 	
-	if(inspType == "Building Final" && balanceDue > 0)
+	if(isFinalInspection(inspType) && balanceDue > 0)
 	{
 		//Need to check for Fee Moratorium. 
 		//check for moratorium fees
